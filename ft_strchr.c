@@ -19,12 +19,11 @@ char	*ft_strchr(const char *s, int c)
 	ptr = (char *)s;
 	while (*s)
 	{
-		if (*s == c)
+		if (*ptr == c)
 			return (ptr);
-		s++;
 		ptr++;
 	}
-	if (*s == '\0')
+	if (*ptr == '\0')
 		return (ptr);
 	return (NULL);
 }
