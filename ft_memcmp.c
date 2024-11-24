@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/24 18:06:22 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/11/24 18:06:29 by cwannhed         ###   ########.fr       */
+/*   Created: 2024/11/24 19:13:03 by cwannhed          #+#    #+#             */
+/*   Updated: 2024/11/24 19:13:07 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char			*last_ptr;
-	unsigned char	chr;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	last_ptr = NULL;
-	chr = (unsigned char)c;
-	while (*s)
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (n > 0)
 	{
-		if (*s == chr)
-			last_ptr = (char *)s;
-		s++;
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		str1++;
+		str2++;
+		n--;
 	}
-	if (chr == '\0')
-		return ((char *)s);
-	return (last_ptr);
+	return (0);
 }
