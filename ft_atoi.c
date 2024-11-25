@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 14:17:53 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/11/25 12:21:48 by cwannhed         ###   ########.fr       */
+/*   Created: 2024/11/25 15:30:08 by cwannhed          #+#    #+#             */
+/*   Updated: 2024/11/25 15:30:12 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-int	ft_isalpha(int c)
+int	ft_atoi(const char *nptr)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
+	int	nbr;
+	int	sign;
+
+	nbr = 0;
+	sign = 1;
+	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
+	{
+		if (*nptr == '-')
+			sign = -1;
+		nptr++;
+	}
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		nbr = nbr * 10 + (*nptr - '0');
+		nptr++;
+	}
+	return (sign * nbr);
 }
