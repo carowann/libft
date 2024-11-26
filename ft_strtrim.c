@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 15:34:17 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/11/22 15:34:27 by cwannhed         ###   ########.fr       */
+/*   Created: 2024/11/26 12:06:06 by cwannhed          #+#    #+#             */
+/*   Updated: 2024/11/26 12:06:07 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char *ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
-	size_t	len_src;
+	char			*str;
+	unsigned int	start;
+	size_t			len;
+	size_t			i;
+	size_t			j;
 
-	len_src = ft_strlen(src);
-	if (size == 0)
-		return (len_src);
+	start = 0;
 	i = 0;
-	while (i < size - 1 && src[i])
+	j = 0;
+	while (set[i])
 	{
-		dst[i] = src[i];
+		if(set[i] == s1[j])
+		{
+			start++;
+			j++;
+		}
 		i++;
 	}
-	dst[i] = '\0';
-	return (len_src);
+	str = ft_substr(s1, start, len);
+	return (str);
 }
+

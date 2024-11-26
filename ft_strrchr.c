@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 15:34:17 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/11/22 15:34:27 by cwannhed         ###   ########.fr       */
+/*   Created: 2024/11/24 18:06:22 by cwannhed          #+#    #+#             */
+/*   Updated: 2024/11/24 18:06:29 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
-	size_t	len_src;
+	char			*last_ptr;
+	unsigned char	chr;
 
-	len_src = ft_strlen(src);
-	if (size == 0)
-		return (len_src);
-	i = 0;
-	while (i < size - 1 && src[i])
+	last_ptr = NULL;
+	chr = (unsigned char)c;
+	while (*s)
 	{
-		dst[i] = src[i];
-		i++;
+		if (*s == chr)
+			last_ptr = (char *)s;
+		s++;
 	}
-	dst[i] = '\0';
-	return (len_src);
+	if (chr == '\0')
+		return ((char *)s);
+	return (last_ptr);
 }

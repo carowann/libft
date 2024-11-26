@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 15:34:17 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/11/22 15:34:27 by cwannhed         ###   ########.fr       */
+/*   Created: 2024/11/26 11:36:25 by cwannhed          #+#    #+#             */
+/*   Updated: 2024/11/26 11:36:28 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*str;
+	size_t	tot_len;
 	size_t	i;
-	size_t	len_src;
+	size_t	j;
 
-	len_src = ft_strlen(src);
-	if (size == 0)
-		return (len_src);
+	tot_len = ft_strlen(s1) + ft_strlen(s2);
+	str = (char *)malloc((tot_len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
 	i = 0;
-	while (i < size - 1 && src[i])
+	while (s1[i])
 	{
-		dst[i] = src[i];
+		str[i] = s1[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (len_src);
+	j = 0;
+	while (s2[j])
+	{
+		str[i] = s2[j];
+		i++;
+		j++;
+	}
+	str[i] = '\0';
+	return (str);
 }
