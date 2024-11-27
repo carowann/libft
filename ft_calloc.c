@@ -14,11 +14,12 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned char	*array;
+	void	*array;
 
-	array = (unsigned char *)malloc(nmemb * size);
+	array = malloc(nmemb * size);
 	if (!array)
 		return (NULL);
 	ft_memset(array, 0, nmemb * size);
+	//check overfow 
 	return (array);
 }

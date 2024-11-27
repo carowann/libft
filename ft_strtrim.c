@@ -11,29 +11,23 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-char *ft_strtrim(char const *s1, char const *set)
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char			*str;
 	unsigned int	start;
-	size_t			i;
+	size_t			end;
 	size_t			len;
-	size_t			to_trim;
 
+	if (!s1 || !set)
+		return (NULL);
 	start = 0;
-	i = ft_strlen(s1);
-	to_trim = 0;
-	while (*s1 &&  ft_strchr(set, s1[start]))
-	{
+	while (s1[start] && ft_strchr(set, s1[start]))
 		start++;
-		to_trim++;
-	}
-	while (*s1 &&  ft_strchr(set, s1[i]))
-	{
-		i--;
-		to_trim++;
-	}
-	len = ft_strlen(s1) - to_trim + 1;
+	end = ft_strlen(s1);
+	while (end > start && ft_strchr(set, s1[end - 1]))
+		end--;
+	len = end - start;
 	str = ft_substr(s1, start, len);
 	return (str);
 }
