@@ -16,10 +16,11 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*array;
 
+	if (nmemb * size > INT_MAX)
+		return (NULL);
 	array = malloc(nmemb * size);
 	if (!array)
 		return (NULL);
-	ft_memset(array, 0, nmemb * size);
-	//check overfow 
+	ft_bzero(array, nmemb * size);
 	return (array);
 }
