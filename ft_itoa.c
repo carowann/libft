@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: caroline <caroline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:38:26 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/11/28 16:38:28 by cwannhed         ###   ########.fr       */
+/*   Updated: 2024/12/01 22:18:19 by caroline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,19 +80,3 @@ char	*ft_itoa(int n)
 	ft_itoa_helper(str, n, div);
 	return (start);
 }
-
-/*
-int	main()
-{
-	char	*result;
-	size_t	i;
-	i = 0;
-	result = ft_itoa(-1234);
-	printf("%s\n", result);
-	while (result[i])
-	{
-		write(1, &result[i], 1);
-		write(1, "\n", 1);
-		i++;
-	}
-}*/

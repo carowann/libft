@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: caroline <caroline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:37:11 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/11/27 11:37:14 by cwannhed         ###   ########.fr       */
+/*   Updated: 2024/12/01 22:03:20 by caroline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 
 static	size_t	count_strings(char const *s, char c)
 {
-	size_t			i;
-	size_t			n_strings;
+	size_t			count;
 	unsigned char	in_string;
 
-	i = 0;
-	n_strings = 0;
+	count = 0;
 	in_string = 0;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] != c && in_string == 0)
+		if (*s != c && !in_string)
 		{
 			in_string = 1;
-			n_strings++;
+			count++;
 		}
-		else if (s[i] == c)
+		else if (*s == c)
 			in_string = 0;
-		i++;
+		s++;
 	}
-	return (n_strings);
+	return (count);
 }
 
 static	void	*free_array(char **array, size_t i)
@@ -49,15 +47,15 @@ static	void	*free_array(char **array, size_t i)
 char	**ft_split(char const *s, char c)
 {
 	char	**array;
-	size_t	n_strings;
 	char	*start;
+	size_t	n_strings;
 	size_t	i;
 
-	i = 0;
 	n_strings = count_strings(s, c);
 	array = (char **)malloc((n_strings + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);
+	i = 0;
 	while (i < n_strings)
 	{
 		while (*s == c)
@@ -65,9 +63,10 @@ char	**ft_split(char const *s, char c)
 		start = (char *)s;
 		while (*s && *s != c)
 			s++;
-		array[i] = ft_substr(start, 0, s - start);
+		array[i] = (char *)malloc((s - start + 1) * sizeof(char));
 		if (!array[i])
 			return (free_array(array, i));
+		ft_strlcpy(array[i], start, s - start + 1);
 		i++;
 	}
 	array[i] = NULL;
