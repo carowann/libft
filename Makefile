@@ -38,7 +38,19 @@ SRCS = \
        ft_putendl_fd.c    \
        ft_putnbr_fd.c
 
+BONUS_SRCS = \
+			ft_lstnew_bonus.c		\
+			ft_lstadd_front_bonus.c	\
+			ft_lstsize_bonus.c		\
+			ft_lstlast_bonus.c		\
+			ft_lstdelone_bonus.c	\
+			ft_lstadd_back_bonus.c	\
+			ft_lstclear_bonus.c		\
+			ft_lstiter_bonus.c		\
+			ft_lstmap_bonus.c
+
 OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 all: $(NAME)
 
@@ -47,14 +59,14 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 	@echo "Library $(NAME) created successfully!"
 
-%.o: %.c
-	@echo "Compiling $<..."
-	$(CC) $(CFLAGS) -c $< -o $@
-	@echo "Compiled $< into $@."
+bonus: $(OBJS) $(BONUS_OBJS)
+	@echo "Creating library $(NAME)..."
+	ar rcs $(NAME) $(BONUS_OBJS)
+	@echo "Library $(NAME) created successfully!"
 
 clean:
 	@echo "Cleaning object files..."
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS)
 	@echo "Object files cleaned!"
 
 fclean: clean
@@ -62,6 +74,6 @@ fclean: clean
 	rm -f $(NAME)
 	@echo "Library $(NAME) removed!"
 
-re: fclean all
+re: fclean $(NAME)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

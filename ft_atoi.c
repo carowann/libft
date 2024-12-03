@@ -5,10 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 15:30:08 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/11/25 15:30:12 by cwannhed         ###   ########.fr       */
+/*   Created: 2024/12/02 17:29:36 by cwannhed          #+#    #+#             */
+/*   Updated: 2024/12/02 17:31:52 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {

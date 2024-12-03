@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caroline <caroline@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 16:38:26 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/12/01 22:18:19 by caroline         ###   ########.fr       */
+/*   Created: 2024/12/02 17:32:50 by cwannhed          #+#    #+#             */
+/*   Updated: 2024/12/02 17:32:57 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <unistd.h>
 
 static	size_t	get_n_len(int n, int div)
 {
