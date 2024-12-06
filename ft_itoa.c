@@ -6,7 +6,7 @@
 /*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 17:32:50 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/12/02 17:32:57 by cwannhed         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:40:50 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	div = get_div(n);
 	len = get_n_len(n, div);
-	str = (char *)malloc((len + 1) * sizeof(char));
+	str = (char *)ft_calloc(len + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	start = str;

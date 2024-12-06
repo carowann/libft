@@ -6,7 +6,7 @@
 /*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 18:12:23 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/12/02 18:12:26 by cwannhed         ###   ########.fr       */
+/*   Updated: 2024/12/05 09:54:19 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 
 	n_strings = count_strings(s, c);
-	array = (char **)malloc((n_strings + 1) * sizeof(char *));
+	array = (char **)ft_calloc(n_strings + 1, sizeof(char *));
 	if (!array)
 		return (NULL);
 	i = 0;
@@ -63,12 +63,11 @@ char	**ft_split(char const *s, char c)
 		start = (char *)s;
 		while (*s && *s != c)
 			s++;
-		array[i] = (char *)malloc((s - start + 1) * sizeof(char));
+		array[i] = (char *)ft_calloc(s - start + 1, sizeof(char));
 		if (!array[i])
 			return (free_array(array, i));
 		ft_strlcpy(array[i], start, s - start + 1);
 		i++;
 	}
-	array[i] = NULL;
 	return (array);
 }

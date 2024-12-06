@@ -6,7 +6,7 @@
 /*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 18:14:02 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/12/02 18:14:06 by cwannhed         ###   ########.fr       */
+/*   Updated: 2024/12/05 09:43:28 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return (NULL);
-	str = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	str = (char *)ft_calloc(ft_strlen(s) + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -28,6 +28,5 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		str[i] = f(i, s[i]);
 		i++;
 	}
-	str[i] = '\0';
 	return (str);
 }

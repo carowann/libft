@@ -12,6 +12,7 @@ SRCS = \
        ft_strlen.c        \
        ft_tolower.c       \
        ft_toupper.c       \
+	   ft_calloc.c		  \
        ft_memset.c        \
        ft_bzero.c         \
        ft_memcpy.c        \
@@ -59,7 +60,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 	@echo "Library $(NAME) created successfully!"
 
-bonus: $(OBJS) $(BONUS_OBJS)
+bonus: $$(NAME) $(BONUS_OBJS)
 	@echo "Creating library $(NAME)..."
 	ar rcs $(NAME) $(BONUS_OBJS)
 	@echo "Library $(NAME) created successfully!"
