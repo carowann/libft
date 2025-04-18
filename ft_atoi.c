@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cwannhed <cwannhed@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 17:29:36 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/12/05 09:46:58 by cwannhed         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:50:41 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	nbr;
-	int	sign;
+	int			nbr;
+	int			sign;
 
 	nbr = 0;
 	sign = 1;

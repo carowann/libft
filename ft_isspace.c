@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwannhed <cwannhed@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 12:12:29 by cwannhed          #+#    #+#             */
-/*   Updated: 2025/03/09 15:16:46 by cwannhed         ###   ########.fr       */
+/*   Created: 2025/03/12 15:59:38 by cwannhed          #+#    #+#             */
+/*   Updated: 2025/03/12 16:02:54 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_isspace(char c)
 {
-	while (lst && lst->next)
-		lst = lst->next;
-	return (lst);
+	if (c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v')
+		return (1);
+	else
+		return (0);
 }

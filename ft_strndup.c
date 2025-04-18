@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwannhed <cwannhed@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 12:12:29 by cwannhed          #+#    #+#             */
-/*   Updated: 2025/03/09 15:16:46 by cwannhed         ###   ########.fr       */
+/*   Created: 2025/03/20 16:58:45 by cwannhed          #+#    #+#             */
+/*   Updated: 2025/03/20 16:59:26 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+char	*ft_strndup(const char *s, size_t n)
 {
-	while (lst && lst->next)
-		lst = lst->next;
-	return (lst);
+	char	*str;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	str = (char *)ft_calloc(n + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s[i] && i < n)
+	{
+		str[i] = s[i];
+		i++;
+	}
+	return (str);
 }

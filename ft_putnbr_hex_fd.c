@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_hex_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwannhed <cwannhed@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 18:09:03 by cwannhed          #+#    #+#             */
-/*   Updated: 2025/02/13 17:04:04 by cwannhed         ###   ########.fr       */
+/*   Created: 2025/02/13 12:26:02 by cwannhed          #+#    #+#             */
+/*   Updated: 2025/02/15 17:18:08 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_hex_fd(unsigned int n, int fd, char letter_case)
 {
-	int	count;
+	int		count;
+	char	hex_start;
+	char	digit;
 
+	if (n == 0)
+		return (ft_putchar_fd('0', fd));
+	hex_start = 'a';
+	if (ft_isupper(letter_case))
+		hex_start = 'A';
 	count = 0;
-	if (n == -2147483648)
-		return (ft_putstr_fd("-2147483648", fd));
-	if (n < 0)
-	{
-		count += ft_putchar_fd('-', fd);
-		n *= -1;
-	}
-	if (n >= 10)
-		count += ft_putnbr_fd(n / 10, fd);
-	count += ft_putchar_fd(n % 10 + '0', fd);
+	if (n >= 16)
+		count += ft_putnbr_hex_fd(n / 16, fd, letter_case);
+	if (n % 16 < 10)
+		digit = '0' + (n % 16);
+	else
+		digit = hex_start + (n % 16 - 10);
+	count += ft_putchar_fd(digit, fd);
 	return (count);
 }

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwannhed <cwannhed@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 12:12:29 by cwannhed          #+#    #+#             */
-/*   Updated: 2025/03/09 15:16:46 by cwannhed         ###   ########.fr       */
+/*   Created: 2025/02/15 17:06:05 by cwannhed          #+#    #+#             */
+/*   Updated: 2025/04/07 08:51:15 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_isupper(int c)
 {
-	while (lst && lst->next)
-		lst = lst->next;
-	return (lst);
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
 }

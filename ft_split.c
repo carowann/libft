@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwannhed <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cwannhed <cwannhed@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 18:12:23 by cwannhed          #+#    #+#             */
-/*   Updated: 2024/12/05 09:54:19 by cwannhed         ###   ########.fr       */
+/*   Updated: 2025/03/11 11:09:11 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,29 +44,44 @@ static	void	*free_array(char **array, size_t i)
 	return (NULL);
 }
 
+static char	*extract_token(char **s, char c)
+{
+	char	*start;
+	size_t	len;
+	char	*token;
+
+	while (**s == c)
+		(*s)++;
+	start = *s;
+	while (**s && **s != c)
+		(*s)++;
+	len = *s - start;
+	token = ft_calloc(len + 1, sizeof(char));
+	if (token)
+		ft_strlcpy(token, start, len + 1);
+	return (token);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**array;
-	char	*start;
+	char	*str;
 	size_t	n_strings;
 	size_t	i;
 
 	n_strings = count_strings(s, c);
+	if (n_strings == 0)
+		return (NULL);
 	array = (char **)ft_calloc(n_strings + 1, sizeof(char *));
 	if (!array)
 		return (NULL);
+	str = (char *)s;
 	i = 0;
 	while (i < n_strings)
 	{
-		while (*s == c)
-			s++;
-		start = (char *)s;
-		while (*s && *s != c)
-			s++;
-		array[i] = (char *)ft_calloc(s - start + 1, sizeof(char));
+		array[i] = extract_token(&str, c);
 		if (!array[i])
 			return (free_array(array, i));
-		ft_strlcpy(array[i], start, s - start + 1);
 		i++;
 	}
 	return (array);

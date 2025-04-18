@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr_u_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwannhed <cwannhed@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 12:12:29 by cwannhed          #+#    #+#             */
-/*   Updated: 2025/03/09 15:16:46 by cwannhed         ###   ########.fr       */
+/*   Created: 2025/02/13 15:53:00 by cwannhed          #+#    #+#             */
+/*   Updated: 2025/02/13 17:05:14 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_putnbr_u_fd(unsigned int n, int fd)
 {
-	while (lst && lst->next)
-		lst = lst->next;
-	return (lst);
+	int	count;
+
+	count = 0;
+	if (n >= 10)
+		count += ft_putnbr_u_fd(n / 10, fd);
+	count += ft_putchar_fd(n % 10 + '0', fd);
+	return (count);
 }
