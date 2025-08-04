@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwannhed <cwannhed@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: cwannhed <cwannhed@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:59:38 by cwannhed          #+#    #+#             */
-/*   Updated: 2025/03/12 16:02:54 by cwannhed         ###   ########.fr       */
+/*   Updated: 2025/04/25 15:19:26 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	ft_isspace(char c)
 {
-	if (c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v')
+	if (c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v'
+		|| c == 32)
 		return (1);
 	else
 		return (0);

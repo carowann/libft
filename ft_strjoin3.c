@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwannhed <cwannhed@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 16:24:12 by cwannhed          #+#    #+#             */
+/*   Created: 2025-04-24 14:28:03 by cwannhed          #+#    #+#             */
 /*   Updated: 2025/04/25 15:19:26 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strjoin3(char const *s1, char const *s2, char const *s3)
 {
-	void	*array;
-	size_t	total_size;
+	char	*str;
+	char	*dest;
+	size_t	len;
 
-	if (nmemb == 0 || size == 0)
-		return (malloc(1));
-	if (nmemb > SIZE_MAX / size)
+	if (!s1)
+		return (ft_strjoin(s2, s3));
+	if (!s2)
+		return (ft_strjoin(s1, s3));
+	if (!s3)
+		return (ft_strjoin(s1, s2));
+	len = ft_strlen(s1) + ft_strlen(s2) + ft_strlen(s3);
+	str = (char *)ft_calloc(len + 1, sizeof(char));
+	if (!str)
 		return (NULL);
-	total_size = nmemb * size;
-	array = malloc(total_size);
-	if (!array)
-		return (NULL);
-	ft_bzero(array, nmemb * size);
-	return (array);
+	dest = str;
+	while (*s1)
+		*dest++ = *s1++;
+	while (*s2)
+		*dest++ = *s2++;
+	while (*s3)
+		*dest++ = *s3++;
+	return (str);
 }

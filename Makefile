@@ -46,6 +46,7 @@ SRCS = \
 		ft_strdup.c				\
 		ft_substr.c				\
 		ft_strjoin.c			\
+		ft_strjoin3.c			\
 		ft_strtrim.c			\
 		ft_split.c				\
 		ft_atoi.c				\
@@ -70,7 +71,6 @@ SRCS = \
 		ft_lstmap_bonus.c		\
 		ft_printf.c				\
 		ft_isspace.c			\
-		ft_atof.c				\
 		ft_strndup.c			\
 		get_next_line.c			\
 		get_next_line_bonus.c

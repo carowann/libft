@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwannhed <cwannhed@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: cwannhed <cwannhed@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 10:24:01 by cwannhed          #+#    #+#             */
-/*   Updated: 2025/03/20 18:01:23 by cwannhed         ###   ########.fr       */
+/*   Updated: 2025/04/25 15:19:26 by cwannhed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,8 @@ char	*ft_strndup(const char *s, size_t n);
 /*    CONVERSION FUNCTIONS   */
 /* ========================= */
 
-int			ft_atoi(const char *nptr);
-char		*ft_itoa(int n);
-long double	ft_atof(const char *str);
+int		ft_atoi(const char *nptr);
+char	*ft_itoa(int n);
 
 /* ========================= */
 /*   STRING MANIPULATION     */
@@ -95,6 +94,7 @@ long double	ft_atof(const char *str);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin3(char const *s1, char const *s2, char const *s3);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
